@@ -1,44 +1,38 @@
-# EX 30 C program to add two integer elements in an array using realloc() and that array already has three elements.
+# EX 30 write a program to display the class timings using enumeration
 ## DATE:
 ## AIM:
-To write a C program to add two integer elements in an array using realloc() and that array already has three elements.
+write a program to display the class timings using enumeration?
 
 ## Algorithm
 1. Start.
-2. Declare array size
-3. Initialize array elements using malloc()
-4. Update array size using realloc() 
-5. Print the result.
-6. End.  
+2. Define an enumeration for class timings (FIRST, SECOND, THIRD, FOURTH).
+3. Assign the class timings to enumeration constants.
+4. Display each class timing using its enumeration name.
+5. Stop.
 
 ## Program:
 ```
 #include <stdio.h>
-#include <stdlib.h>
+enum ClassHours {
+    First = 8,
+    Second,
+    Third,
+    Fourth,
+    Fifth
+};
 int main() {
- int *arr, size, i;
- size = 3;
- arr = (int *)malloc(size * sizeof(int)); 
- for (i = 0; i < size; i++) {
- arr[i] = i * 10; }
- printf("Original array:\n");
- for (i = 0; i < size; i++) {
- printf("%d ", arr[i]);
- }
- printf("\n");
- size *= 2;
- arr = (int *)realloc(arr, size * sizeof(int)); 
- for (i = size / 2; i < size; i++) {
- arr[i] = i * 10;
-printf("Updated array:\n");
- for (i = 0; i < size; i++) {
- printf("%d ", arr[i]);
- }}
+    printf("Class Timings\n");
+    printf("First Hour = %d am\n", First);
+    printf("second Hour = %d am\n", Second);
+    printf("Third Hour = %d am\n", Third);
+    printf("Fourth Hour = %d am\n", Fourth);
+    printf("Fifth Hour = %d pm\n", Fifth);  
+    return 0;
+}
 ```
 
 ## Output:
-
-<img width="458" height="233" alt="image" src="https://github.com/user-attachments/assets/302e93ee-1be6-4b84-a8e0-89a937301d49" />
+<img width="952" height="372" alt="Screenshot (60)_18375_1935" src="https://github.com/user-attachments/assets/e45ff4bf-60ca-4d47-9c5d-f5c555bd1846" />
 
 
 ## Result:
