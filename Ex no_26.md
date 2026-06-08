@@ -1,51 +1,46 @@
-# EX 26 C program demonstrating a self-referential structure where an employee has a pointer to their manager.
+# EX 26 write a C program to find area of a circle and perimeter of a circle using pointer 
 ## DATE:
 ## AIM:
-To write a C program to demonstrate a self-referential structure where an employee has a pointer to their manager.
-
+write a C program to find area of a circle and perimeter of a circle using pointer 
 ## Algorithm
 1. Start.
-2. Create a structure and data member using pointer.
-3. Prompt the user to enter a value.
-4. Print the structure values. 
-5. End.  
+2. Declare float variables radius, area, perimeter.
+3. Declare pointer variables *r, *a, *p.
+4. Assign addresses:
+ r = &radius
+ a = &area
+ p = &perimeter
+5. Read the radius of the circle.
+6. Calculate area using the pointer:
+ *a = 3.14 * (*r) * (*r)
+7. Calculate perimeter (circumference) using the pointer:
+ *p = 2 * 3.14 * (*r)
+8. Display the area and perimeter.
+9. Stop. 
 
 ## Program:
 ```
 #include <stdio.h>
-#include <stdlib.h>
-struct Employee {
- int empID;
- char name[50];
- struct Employee *manager; };
+#define PI 3.14
+void calculate(float *radius, float *area, float *perimeter) {
+    *area = PI * (*radius) * (*radius);
+    *perimeter = 2 * PI * (*radius);
+}
 int main() {
- struct Employee *emp1, *emp2, *emp3;
- emp1 = (struct Employee*)malloc(sizeof(struct Employee));
- emp2 = (struct Employee*)malloc(sizeof(struct Employee));
- emp3 = (struct Employee*)malloc(sizeof(struct Employee));
- emp1->empID = 1;
- snprintf(emp1->name, sizeof(emp1->name), "John Doe");
- emp1->manager = NULL; 
- emp2->empID = 2;
- snprintf(emp2->name, sizeof(emp2->name), "Alice Smith");
- emp2->manager = emp1; 
- emp3->empID = 3;
- snprintf(emp3->name, sizeof(emp3->name), "Bob Brown");
- emp3->manager = emp1; 
- printf("Employee 1: %s (ID: %d), Manager: %s\n", emp1->name, emp1->empID, (emp1->manager == 
-NULL) ? "None" : emp1->manager->name);
- printf("Employee 2: %s (ID: %d), Manager: %s\n", emp2->name, emp2->empID, emp2->manager->name);
- printf("Employee 3: %s (ID: %d), Manager: %s\n", emp3->name, emp3->empID, emp3->manager->name);
- free(emp1);
- free(emp2);
- free(emp3);
- return 0;
+    float radius, area, perimeter;
+    scanf("%f", &radius);
+    calculate(&radius, &area, &perimeter);
+    printf("Area of Circle = %.2f\n", area);
+    printf("Perimeter of Circle = %.2f\n", perimeter);
+
+    return 0;
 }
 ```
 
 ## Output:
 
-<img width="453" height="415" alt="image" src="https://github.com/user-attachments/assets/5b12a6fa-409c-48e3-a4de-7b023608e1b6" />
+<img width="1439" height="400" alt="Screenshot (57)_13059" src="https://github.com/user-attachments/assets/f3d0ede1-6205-48d4-89ef-3766a25539c4" />
+
 
 
 ## Result:
