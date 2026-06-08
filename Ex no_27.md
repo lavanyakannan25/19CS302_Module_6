@@ -1,31 +1,44 @@
-# EX 27 C program that demonstrates the use of typedef to create a new alias name for a data type.
+# EX 27 Write a C program to check given input is even or odd using calloc().
 ## DATE:
 ## AIM:
-To write a C program that demonstrates the use of typedef to create a new alias name for a data type.
-
+To Write a C program to check given input is even or odd using calloc().
 ## Algorithm
 1. Start.
-2. Declare a variable value of type char.
-3. Prompt the user to enter a value.
-4. Read the value using scanf. 
-5. Check eligible for marriage.
-6. If age >= 21, print "Eligible".
-7. If false, print " Not Eligible".
-8. End.  
+2. Declare an integer pointer ptr.
+3. Allocate memory for one integer using calloc().
+4. Check if memory allocation is successful.
+ If ptr == NULL, display "Memory allocation failed" and stop.
+6. Read a number and store it in the allocated memory location (*ptr).
+7. Check whether the number is divisible by 2.
+  If *ptr % 2 == 0, display "The number is Even".
+8. Otherwise, display "The number is Odd".
+9. Free the allocated memory using free(ptr).  
 
 ## Program:
 ```
 #include <stdio.h>
-typedef int MyInt;
+#include <stdlib.h>
 int main() {
- MyInt num = 10;
- printf("The value of num is: %d\n", num);
- return 0;
+    int *num;
+    num = (int *)calloc(1, sizeof(int));
+    if (num == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+    scanf("%d", num);
+    if (*num % 2 == 0) {
+        printf("%d is Even Number\n", *num);
+    } else {
+        printf("%d is Odd Number\n", *num);
+    }
+    free(num);
+    return 0;
 }
 ```
 
 ## Output:
-<img width="460" height="199" alt="image" src="https://github.com/user-attachments/assets/47ba7bc9-14bf-4df5-8741-284085233e33" />
+<img width="1145" height="550" alt="Screenshot (58)_12660" src="https://github.com/user-attachments/assets/f960e05c-de43-4b73-aeb4-6431d9dce3fc" />
+
 
 
 
